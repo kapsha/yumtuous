@@ -1,0 +1,71 @@
+<html>
+<head>
+  <link href="../static/css/signup.css" th:href="@{/css/signup.css}" rel="stylesheet" />
+</head>
+<body>
+  <div class="form-style-10">
+  <h1>Sign Up Now!<span>Sign up!</span></h1>
+    <form>
+        <div class="section"><span>1</span>First Name &amp; Address</div>
+        <div class="inner-wrap">
+            <label>First Name
+              <span class="required">*</span>
+              <input type="text" name="firstname" />
+            </label>
+            <label>Last Name
+              <span class="required">*</span>
+              <input type="text" name="lastname" />
+            </label>
+			<label>Birth date
+              <span class="required">*</span>
+              <input type="date" name="bday" placeholder="yyyy-mm-dd"/>
+            </label>
+		</div>
+
+        <div class="section"><span>2</span>Email &amp; Phone</div>
+        <div class="inner-wrap">
+            <label>Email Address
+              <span class="required">*</span>
+              <input type="email" name="email" />
+            </label>
+            <label>Phone Number
+              <span class="required">*</span>
+              <input type="text" name="mobile" placeholder="10 digit phone number"/>
+            </label>
+        </div>
+        <div class="button-section">
+         <button type="submit" onclick="onClick()">
+           Submit
+         </button>
+         <span class="privacy-policy">
+         <input type="checkbox" name="toc">You agree to our Terms and Policy.
+         </span>
+        </div>
+    </form>
+  </div>
+</body>
+<script type="text/javascript" language="javascript">
+  function onClick() {
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+           if (this.readyState == 4 && this.status == 200) {
+               alert(this.responseText);
+           }
+      };
+      var fn = document.getElementById("firstname").value;
+	  var ln = document.getElementById("lastname").value;
+	  var bd = document.getElementById("bday").value;
+	  var email = document.getElementById("email").value;
+	  var mobile = document.getElementById("mobile").value;
+      alert("Hello! I am an alert box!. " + fn+ln+bday+email+mobile);
+    
+      var xxx = JSON.stringify({firstname:fn, lastname:ln});
+      alert ("stringify: " + xxx);
+
+      xhttp.open("POST", "/customers", true);
+      xhttp.setRequestHeader("Content-type", "application/json");
+      xmlhttp.send(JSON.stringify({firstname:fn, lastname:ln}));
+      
+  }
+</script>
+<html>
