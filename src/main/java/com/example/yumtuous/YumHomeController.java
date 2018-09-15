@@ -10,7 +10,7 @@ public class YumHomeController {
     @Value("${spring.application.name}")
     String appName;
  
-    @GetMapping("/")
+    @GetMapping("/yum")
     public String homePage(Model model) {
         model.addAttribute("appName", appName);
         return "home";
