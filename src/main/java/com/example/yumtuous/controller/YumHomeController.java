@@ -1,4 +1,4 @@
-package com.example.yumtuous;
+package com.example.yumtuous.controller;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
